@@ -23,9 +23,9 @@ def main():
     reader = RFID.init_mfrc()
 
     #button.button_wrapper(reader, button_pin)
-    if keyboard.key_pressed('b'):
+    if keyboard.is_pressed('b'):
         button.button_callback()
-    
+
     Thread(target = reader_loop, args = (reader)).start()
 
     GPIO.cleanup()
