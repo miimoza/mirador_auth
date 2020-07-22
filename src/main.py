@@ -14,7 +14,7 @@ def main():
             new_id = user.create(0)
             display.wait_and_clear()
 
-        if True:
+        if keyboard.is_pressed('s'):
             id, data = RFID.read()
             dict = user.get_info(id)
             user.increment_visit(id, dict)
