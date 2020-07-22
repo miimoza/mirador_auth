@@ -8,7 +8,7 @@ def read():
     try:
             id, data = reader.read()
 
-            print("id:" + id)
+            print("id:" + str(id))
             print("data:" + data)
     finally:
             GPIO.cleanup()
