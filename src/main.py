@@ -6,7 +6,6 @@ from threading import Thread
 import user
 import display
 import os
-import keyboard
 import time
 import button
 
@@ -23,8 +22,6 @@ def main():
     reader = RFID.init_mfrc()
 
     #button.button_wrapper(reader, button_pin)
-    if keyboard.is_pressed('b'):
-        button.button_callback()
 
     Thread(target = reader_loop, args = [reader]).start()
 
