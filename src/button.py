@@ -10,6 +10,7 @@ def button_wrapper():
     thread_button = Thread(target = wrapper, args = (18, button_callback))
 
 def button_callback():
+    print("waiting for new user to be registred...")
     id, data = RFID.read()
     user.create(id)
     display.wait_and_clear()
