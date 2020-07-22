@@ -14,9 +14,9 @@ def main():
 
     # BCM 18
     # BOARD 12
-    button_pin = 12
+    button_pin = 18
     GPIO.setwarnings(True)
-    GPIO.setmode(GPIO.BOARD)
+    GPIO.setmode(GPIO.BCM)
     GPIO.setup(button_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
     # RFID
     reader = RFID.init_mfrc()
