@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import RPi.GPIO as GPIO
 import RFID
 import user
 import display
@@ -11,6 +12,7 @@ import button
 def main():
     os.system('clear')
     while True:
+        GPIO.cleanup()
         id, data = RFID.read()
         button.button_wrapper()
         dict = user.get_info(id)
