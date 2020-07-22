@@ -6,6 +6,7 @@ from mfrc522 import SimpleMFRC522
 def read():
     reader = SimpleMFRC522()
     try:
+            print("waiting for a card to be scanned...")
             id, data = reader.read()
 
             print("id:" + str(id))
