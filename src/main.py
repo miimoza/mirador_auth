@@ -13,6 +13,8 @@ def main():
     os.system('clear')
     while True:
         GPIO.cleanup()
+        GPIO.setwarnings(True)
+        GPIO.setmode(GPIO.BCM)
         id, data = RFID.read()
         button.button_wrapper()
         dict = user.get_info(id)
