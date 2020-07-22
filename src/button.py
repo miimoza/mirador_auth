@@ -5,6 +5,8 @@ import display
 import user
 
 def button_wrapper():
+    GPIO.setwarnings(True)
+    GPIO.setmode(GPIO.BCM)
     Thread(target = wrapper, args = (18, button_callback)).start()
 
 def button_callback():
