@@ -9,6 +9,7 @@ import time
 
 def main():
     os.system('clear')
+    print("BONJOUR MIRADOR")
     while True:
         if keyboard.is_pressed('c'):
             new_id = user.create(0)
