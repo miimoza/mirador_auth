@@ -1,6 +1,7 @@
 from threading import Thread
 import RPi.GPIO as GPIO
 import RFID
+import display
 import user
 
 def button_wrapper():

@@ -11,8 +11,8 @@ import button
 def main():
     os.system('clear')
     while True:
-        button.button_wrapper()
         id, data = RFID.read()
+        button.button_wrapper()
         dict = user.get_info(id)
         user.increment_visit(id, dict)
         display.pretty_print(dict)
