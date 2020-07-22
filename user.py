@@ -8,7 +8,7 @@ def create():
 
 def get_info(id):
     print("get_user_info")
-    return "thibault super"
+    return {"user":"Julien", "nb_visit":17}
 
 
 

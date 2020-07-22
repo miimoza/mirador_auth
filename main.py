@@ -1,18 +1,29 @@
-import RFID
+#import RFID
 import user
 import display
-
+import os
+import keyboard
+import time
 
 def main():
+	os.system('clear')
+	print("MIRADOR_AUTH v0.0.1")
 	while True:
-		print("MIRADOR_AUTH v0.0.1")
-
-		if "BOUTON PRESSE":
+		if keyboard.is_pressed('c'):
 			new_id = user.create()
 			print("Create new User with ID " + str(new_id))
+			time.sleep(3)
+			os.system('clear')
+			print("MIRADOR_AUTH v0.0.1")
+
 		#data = RFID.read()
-		data = "3948328492384239483927584975847"
-		id = RFID.get_id(data)
-		user.increment_visit(id)
-		display.pretty_print(user.get_info(id))
+		if keyboard.is_pressed('s'):
+			data = "3948328492384239483927584975847"
+			#id = RFID.get_id(data)
+			id = "39"
+			user.increment_visit(id)
+			display.pretty_print(user.get_info(id))
+			time.sleep(3)
+			os.system('clear')
+			print("MIRADOR_AUTH v0.0.1")
 main()
