@@ -15,5 +15,5 @@ def pretty_print(user_infos):
         print("{}: {}".format(str(k).capitalize(), str(user_infos[k]).capitalize()))
 
 def wait_and_clear():
-    time.sleep(3)
-    os.system('clear')
+    time.sleep(1)
+    #os.system('clear')
