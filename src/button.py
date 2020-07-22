@@ -9,9 +9,9 @@ def button_wrapper():
 
 def wrapper(gpio_number, function):
     GPIO.setwarnings(True)
-    GPIO.setmode(GPIO.BCM)
-    GPIO.setup(gpio_number, GPIO.IN, pull_up_down=GPIO.PUD_UP)
     while True:
+        GPIO.setmode(GPIO.BCM)
+        GPIO.setup(gpio_number, GPIO.IN, pull_up_down=GPIO.PUD_UP)
         r = GPIO.input(gpio_number)
         if r == False:
             function()
