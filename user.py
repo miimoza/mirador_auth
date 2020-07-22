@@ -1,4 +1,4 @@
-def create_user():
+def create():
     print("create_user")
 
     return 84
@@ -6,11 +6,11 @@ def create_user():
 
 
 
-def get_user_info():
+def get_info(id):
     print("get_user_info")
     return "thibault super"
 
 
 
-def increment_user_visit():
+def increment_visit(id):
     print("increment_user_visit")
