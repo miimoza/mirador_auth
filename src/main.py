@@ -16,9 +16,8 @@ def main():
 
         if keyboard.is_pressed('s'):
         #if True:
-            data = "3948328492384239483927584975847"
             #data = RFID.read()
-            id = "39"
+            id = "0"
             #id = RFID.get_id(data)
             user.increment_visit(id)
             display.pretty_print(user.get_info(id))
