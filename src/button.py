@@ -1,4 +1,4 @@
-import GPIO
+import RPi.GPIO as GPIO
 import RFID
 import user
 
