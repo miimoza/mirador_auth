@@ -7,14 +7,12 @@ import time
 
 def main():
 	os.system('clear')
-	print("MIRADOR_AUTH v0.0.1")
 	while True:
 		if keyboard.is_pressed('c'):
 			new_id = user.create()
 			print("Create new User with ID " + str(new_id))
 			time.sleep(3)
 			os.system('clear')
-			print("MIRADOR_AUTH v0.0.1")
 
 		#data = RFID.read()
 		if keyboard.is_pressed('s'):
@@ -25,5 +23,4 @@ def main():
 			display.pretty_print(user.get_info(id))
 			time.sleep(3)
 			os.system('clear')
-			print("MIRADOR_AUTH v0.0.1")
 main()
