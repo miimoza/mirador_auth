@@ -3,16 +3,17 @@
 import RPi.GPIO as GPIO
 from mfrc522 import SimpleMFRC522
 
-def read():
-    reader = SimpleMFRC522()
+def init_mfrc():
+    return SimpleMFRC522()
+
+def read(reader):
     print("waiting for a card to be scanned...")
     id, data = reader.read()
     print("scanned id {}".format(id))
 
     return (id, data)
 
-def write(data):
-    reader = SimpleMFRC522()
+def write(reader, data):
     reader.write(data)
     print("Written (data:"+ data + ")")
 

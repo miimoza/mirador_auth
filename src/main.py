@@ -11,10 +11,11 @@ import button
 
 def main():
     os.system('clear')
-    while True:
 
-        id, data = RFID.read()
-        button.button_wrapper()
+    reader = RFID.init_mfrc()
+    while True:
+        id, data = RFID.read(reader)
+        button.button_wrapper(reader)
         dict = user.get_info(id)
         user.increment_visit(id, dict)
         display.pretty_print(dict)
