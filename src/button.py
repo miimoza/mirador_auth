@@ -14,11 +14,10 @@ def button_callback():
     display.wait_and_clear()
 
 def wrapper(gpio_number, function):
+    GPIO.setwarnings(True)
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setup(gpio_number, GPIO.IN, pull_up_down=GPIO.PUD_UP)
     while True:
-        GPIO.setwarnings(True)
-        GPIO.setmode(GPIO.BCM)
-        GPIO.setup(gpio_number, GPIO.IN, pull_up_down=GPIO.PUD_UP)
         r = GPIO.input(gpio_number)
         if r == False:
             function()
-        GPIO.cleanup()
