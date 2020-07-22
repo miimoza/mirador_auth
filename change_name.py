@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import database
+from src import database
 
 def main():
     id=input("id: ")
