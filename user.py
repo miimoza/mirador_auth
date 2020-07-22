@@ -1,5 +1,5 @@
 def create_user():
-    print("create_user")'
+    print("create_user")
 
     return 84
 
