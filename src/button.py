@@ -11,6 +11,7 @@ def button_wrapper():
 def button_callback():
     id, data = RFID.read()
     user.create(id)
+    display.wait_and_clear()
 
 def wrapper(gpio_number, function):
     GPIO.setup(gpio_number, GPIO.IN, pull_up_down=GPIO.PUD_UP)
