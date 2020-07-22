@@ -1,11 +1,11 @@
-import RFID.py
+import RFID
 import get_user_info
 
 
 def main():
-    print("MIRADOR_AUTH".center())
-    exec(open("./MFRC522-python/Read.py").read())
-    infos = get_user_info()
-
+    while True:
+        print("MIRADOR_AUTH".center())
+        exec(open("./MFRC522-python/Read.py").read())
+        pretty_print(get_user_info())
 
 main()
