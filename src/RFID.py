@@ -13,7 +13,7 @@ def read():
     finally:
             GPIO.cleanup()
 
-	return (id, data)
+    return (id, data)
 
 def write(data):
     reader = SimpleMFRC522()
