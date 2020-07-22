@@ -21,9 +21,10 @@ def main():
     # RFID
     reader = RFID.init_mfrc()
 
+    button.button_wrapper(reader, button_pin)
+
     while True:
         id, data = RFID.read(reader)
-        button.button_wrapper(reader, button_pin)
         dict = user.get_info(id)
         user.increment_visit(id, dict)
         display.pretty_print(dict)
