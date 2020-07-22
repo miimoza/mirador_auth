@@ -8,7 +8,7 @@ def main():
 
         if "BOUTON PRESSE":
             new_id = user.create()
-            print("Create new User with ID " + new_id)
+            print("Create new User with ID " + str(new_id)
 
         #data = RFID.read()
         data = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
