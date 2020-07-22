@@ -7,12 +7,6 @@ import user
 def button_wrapper():
     Thread(target = wrapper, args = (18, button_callback)).start()
 
-def button_callback():
-    print("waiting for new user to be registred...")
-    id, data = RFID.read()
-    user.create(id)
-    display.wait_and_clear()
-
 def wrapper(gpio_number, function):
     GPIO.setwarnings(True)
     GPIO.setmode(GPIO.BCM)
@@ -21,3 +15,9 @@ def wrapper(gpio_number, function):
         r = GPIO.input(gpio_number)
         if r == False:
             function()
+
+def button_callback():
+    print("waiting for new user to be registred...")
+    id, data = RFID.read()
+    user.create(id)
+    display.wait_and_clear()
