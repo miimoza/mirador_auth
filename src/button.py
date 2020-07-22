@@ -5,12 +5,14 @@ import display
 import user
 
 def button_wrapper(reader):
-    Thread(target = wrapper, args = (18, button_callback, reader)).start()
+    # BCM 18
+    # BOARD 12
+    Thread(target = wrapper, args = (12, button_callback, reader)).start()
 
 def wrapper(gpio_number, function, reader):
     GPIO.setwarnings(True)
     while True:
-        GPIO.setmode(GPIO.BCM)
+        GPIO.setmode(GPIO.BOARD)
         GPIO.setup(gpio_number, GPIO.IN, pull_up_down=GPIO.PUD_UP)
         r = GPIO.input(gpio_number)
         if r == False:
