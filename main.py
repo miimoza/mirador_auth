@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import RFID
+#import RFID
 import user
 import display
 import os
@@ -12,7 +12,6 @@ def main():
     while True:
         if keyboard.is_pressed('c'):
             new_id = user.create()
-            print("Create new User with ID " + str(new_id))
             time.sleep(3)
             os.system('clear')
 
