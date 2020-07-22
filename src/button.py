@@ -18,4 +18,5 @@ def wrapper(gpio_number, function):
     while True:
         r = GPIO.input(gpio_number)
         if r == False:
+            GPIO.cleanup()
             function()
