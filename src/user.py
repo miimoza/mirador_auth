@@ -1,8 +1,6 @@
-import json
 import database
 
-def create():
-    id = 0
+def create(id):
     print("Create new User with ID: {}".format(str(id)))
     dict = {
         "name": "Julien",
