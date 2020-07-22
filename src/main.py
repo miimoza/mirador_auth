@@ -26,7 +26,7 @@ def main():
     if keyboard.is_pressed('b'):
         button.button_callback()
 
-    Thread(target = reader_loop, args = (reader)).start()
+    Thread(target = reader_loop, args = [reader]).start()
 
     GPIO.cleanup()
 
