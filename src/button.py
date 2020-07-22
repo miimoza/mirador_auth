@@ -4,10 +4,8 @@ import RFID
 import display
 import user
 
-def button_wrapper(reader):
-    # BCM 18
-    # BOARD 12
-    Thread(target = wrapper, args = (12, button_callback, reader)).start()
+def button_wrapper(reader, pin):
+    Thread(target = wrapper, args = (pin, button_callback, reader)).start()
 
 def wrapper(gpio_number, function, reader):
     while True:

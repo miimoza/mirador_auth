@@ -12,14 +12,18 @@ import button
 def main():
     os.system('clear')
 
+    # BCM 18
+    # BOARD 12
+    button_pin = 12
     GPIO.setwarnings(True)
     GPIO.setmode(GPIO.BOARD)
-    GPIO.setup(gpio_number, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+    GPIO.setup(button_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+    # RFID
     reader = RFID.init_mfrc()
 
     while True:
         id, data = RFID.read(reader)
-        button.button_wrapper(reader)
+        button.button_wrapper(reader, button_pin)
         dict = user.get_info(id)
         user.increment_visit(id, dict)
         display.pretty_print(dict)
