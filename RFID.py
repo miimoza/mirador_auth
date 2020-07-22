@@ -23,3 +23,6 @@ def write():
             print("Written")
     finally:
             GPIO.cleanup()
+
+def get_id():
+    print("get_id")
