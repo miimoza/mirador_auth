@@ -2,6 +2,7 @@
 
 import RPi.GPIO as GPIO
 import RFID
+from threading import Thread
 import user
 import display
 import os
@@ -22,15 +23,20 @@ def main():
     reader = RFID.init_mfrc()
 
     button.button_wrapper(reader, button_pin)
+    launch_reader(reader)
 
+    GPIO.cleanup()
+
+def launch_reader(reader):
+    Thread(target = reader_loop, args = (reader)).start()
+
+def reader_loop(reader):
     while True:
         id, data = RFID.read(reader)
         dict = user.get_info(id)
         user.increment_visit(id, dict)
         display.pretty_print(dict)
         display.wait_and_clear()
-
-    GPIO.cleanup()
 
 if __name__ == "__main__":
     main()
