@@ -21,7 +21,7 @@ def main():
     # RFID
     reader = RFID.init_mfrc()
 
-    #button.button_wrapper(reader, button_pin)
+    button.button_wrapper(reader, button_pin)
 
     Thread(target = reader_loop, args = [reader]).start()
 
