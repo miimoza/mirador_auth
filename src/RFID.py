@@ -5,22 +5,21 @@ from mfrc522 import SimpleMFRC522
 
 def read():
     reader = SimpleMFRC522()
-
     try:
-            id, text = reader.read()
-            print(id)
-            print(text)
+            id, data = reader.read()
+
+            print("id:" + id)
+            print("data:" + data)
+
+			return (id, data)
     finally:
             GPIO.cleanup()
 
-def write():
+def write(data):
     reader = SimpleMFRC522()
-
     try:
-            text = input('New data:')
-            print("Now place your tag to write")
-            reader.write(text)
-            print("Written")
+            reader.write(data)
+            print("Written (data:"+ data + ")")
     finally:
             GPIO.cleanup()
 
