@@ -24,5 +24,5 @@ def write():
     finally:
             GPIO.cleanup()
 
-def get_id():
+def get_id(data):
     print("get_id")
