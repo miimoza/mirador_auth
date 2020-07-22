@@ -6,8 +6,7 @@ import user
 def button_wrapper():
     GPIO.setwarnings(False)
     GPIO.setmode(GPIO.BCM)
-
-    thread_button = Thread(target = wrapper, args = (18, button_callback))
+    Thread(target = wrapper, args = (18, button_callback)).start()
 
 def button_callback():
     print("waiting for new user to be registred...")
