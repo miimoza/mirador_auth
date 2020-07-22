@@ -1,5 +1,6 @@
 import RFID
 import user
+import display
 
 
 def main():
@@ -13,5 +14,5 @@ def main():
 		data = "3948328492384239483927584975847"
 		id = RFID.get_id(data)
 		user.increment_visit(id)
-		pretty_print(user.get_info(id))
+		display.pretty_print(user.get_info(id))
 main()
