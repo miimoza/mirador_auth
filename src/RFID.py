@@ -8,9 +8,7 @@ def read():
     try:
             print("waiting for a card to be scanned...")
             id, data = reader.read()
-
-            print("id:" + str(id))
-            print("data:" + data)
+            print("scanned id {}".format(id))
     finally:
             GPIO.cleanup()
 
