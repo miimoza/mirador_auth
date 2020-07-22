@@ -16,4 +16,5 @@ def pretty_print(user_infos):
 
 def wait_and_clear():
     time.sleep(1)
+    print("================")
     #os.system('clear')
