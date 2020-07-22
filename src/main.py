@@ -19,8 +19,9 @@ def main():
             #data = RFID.read()
             id = "0"
             #id = RFID.get_id(data)
-            user.increment_visit(id)
-            display.pretty_print(user.get_info(id))
+            dict = user.get_info(id)
+            user.increment_visit(id, dict)
+            display.pretty_print(dict)
             display.wait_and_clear()
 
 if __name__ == "__main__":
