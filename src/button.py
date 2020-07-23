@@ -7,6 +7,8 @@ import keyboard
 import main
 import time
 
+button_pressed = False
+
 def button_wrapper(reader, pin):
     Thread(target = wrapper, args = (pin, button_callback, reader)).start()
 
@@ -19,5 +21,8 @@ def wrapper(gpio_number, function, reader):
         time.sleep(0.1)
 
 def button_callback(reader):
-    main.button_pressed = True
+    global button_pressed
+
+    button_pressed = True
+    print("main button pressed: " + str(button_pressed))
     print("BOUTTON CLICK WAITING FOR CREATION")
