@@ -9,7 +9,11 @@ import os
 import time
 import button
 
+button_pressed = False
+
 def main():
+    global button_pressed
+
     os.system('clear')
 
     # BCM 18
@@ -23,17 +27,21 @@ def main():
 
     button.button_wrapper(reader, button_pin)
 
-    Thread(target = reader_loop, args = [reader]).start()
+    while True:
+        id, data = RFID.read(reader)
+        if button_pressed:
+            user.create(id)
+        else:
+            dict = user.get_info(id)
+            user.increment_visit(id, dict)
+            display.pretty_print(dict)
+        display.wait_and_clear()
+        button_pressed = False
 
     GPIO.cleanup()
 
 def reader_loop(reader):
-    while True:
-        id, data = RFID.read(reader)
-        dict = user.get_info(id)
-        user.increment_visit(id, dict)
-        display.pretty_print(dict)
-        display.wait_and_clear()
+    
 
 if __name__ == "__main__":
     main()
