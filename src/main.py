@@ -9,10 +9,11 @@ import os
 import time
 import button
 
+global button_pressed
 button_pressed = False
 
 def main():
-    global button_pressed
+    button_pressed = False
 
     os.system('clear')
 
@@ -35,18 +36,24 @@ def main():
 
     while True:
         id, data = RFID.read(reader)
+        print("button:" + str(button_pressed))
         if button_pressed:
+            button_pressed = False
             user.create(id)
         else:
-            dict = user.get_info(id)
-            user.increment_visit(id, dict)
-            display.pretty_print(dict)
+            try:
+                dict = user.get_info(id)
+                user.increment_visit(id, dict)    
+                display.pretty_print(dict)
+            
+            except Exception as e:
+                print("[ERROR] ID not identified")
+            
         display.wait_and_clear()
         button_pressed = False
 
     GPIO.cleanup()
 
-def reader_loop(reader):
     
 
 if __name__ == "__main__":

@@ -12,6 +12,9 @@ def create(id):
 
 def get_info(id):
     return database.read_json(id)
+        
+
+    return userinfo
 
 def increment_visit(id, dict):
     dict["nb_visit"] += 1

@@ -5,6 +5,7 @@ import display
 import user
 import keyboard
 import main
+import time
 
 def button_wrapper(reader, pin):
     Thread(target = wrapper, args = (pin, button_callback, reader)).start()
@@ -13,9 +14,10 @@ def wrapper(gpio_number, function, reader):
     while True:
         r = GPIO.input(gpio_number)
         if r == False:
+            r = True
             function(reader)
+        time.sleep(0.1)
 
 def button_callback(reader):
-    global main.button_pressed
     main.button_pressed = True
-    print("waiting for new user to be registred...")
+    print("BOUTTON CLICK WAITING FOR CREATION")
