@@ -21,7 +21,7 @@ def get_info(id):
 def increment_visit(id, dict):
     dict["nb_visit"] += 1
 
-    if dict["grade"] != "host":
+    if dict["grade"] != "propriétaire":
         if (dict["nb_visit"] >= 50):
             dict["grade"] = "platine"
             pass

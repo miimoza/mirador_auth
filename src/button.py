@@ -22,6 +22,6 @@ def wrapper(gpio_number, function, reader):
 
 def button_callback(reader):
     global button_pressed
-
-    button_pressed = True
-    print("\nNOW SCAN YOUR CARD ON THE READER..\n")
+    if not button_pressed:
+        button_pressed = True
+        print("\nNOW SCAN YOUR CARD ON THE READER..\n")
