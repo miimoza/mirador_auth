@@ -2,9 +2,9 @@ import os
 import time
 
 def print_banner():
-    print("*"*36)
-    print("* MIRADOR MEMBER CARD AUTHENTIFIER *")
-    print("*"*36)
+    print("="*80)
+    print("*********************** MIRADOR MEMBER CARD AUTHENTIFIER ***********************")
+    print("="*80)
     print("") 
 
 
@@ -19,8 +19,8 @@ def print_userinfo(user_infos):
 
 def wait_and_clear():
     print("")
-    print("*"*36)
-    for i in range(0,36):
+    print("="*80)
+    for i in range(0,80):
         print(".",end='', flush=True)
-        time.sleep(0.2)
+        time.sleep(0.1)
     os.system('clear')
