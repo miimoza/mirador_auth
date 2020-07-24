@@ -24,5 +24,4 @@ def button_callback(reader):
     global button_pressed
 
     button_pressed = True
-    print("main button pressed: " + str(button_pressed))
-    print("BOUTTON CLICK WAITING FOR CREATION")
+    print("\nNOW SCAN YOUR CARD ON THE READER..\n")

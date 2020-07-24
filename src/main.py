@@ -38,28 +38,30 @@ def main():
     button.button_wrapper(reader, button_pin)
 
     while True:
+        display.print_banner()
+
         id, data = RFID.read(reader)
 
         GPIO.output(greenlight_pin, GPIO.HIGH)
-        print("button:" + str(button.button_pressed))
+
         if button.button_pressed:
-            print("LE BOUTON A ETE PRESSEEEEE + SA A SCAN UNE CARTE BIENVU")
+            print("Creating the new profile...")
             user.create(id)
             button.button_pressed = False
-            for i in range(0,200):
-                GPIO.output(greenlight_pin, GPIO.LOW)
-                GPIO.output(greenlight_pin, GPIO.HIGH)
-                time.sleep(0.05)
 
         else:
             try:
-                dict = user.get_info(id)
-                user.increment_visit(id, dict)    
-                display.pretty_print(dict)
+                userinfo = user.get_info(id)
+                user.increment_visit(id, userinfo)    
+                display.print_userinfo(userinfo)
             
             except Exception as e:
                 GPIO.output(redlight_pin, GPIO.HIGH)
+                print(e)
                 print("[ERROR] ID not identified")
+                print("\nClick on the button then scan the ")
+                print("card to create a new MMC.\n")
+                print("(MMC: Mirador Member Card)")
             
         display.wait_and_clear()
 

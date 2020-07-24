@@ -8,6 +8,8 @@ def create(id):
         "grade": "visiteur"
     }
     database.write_json(id, dict)
+    print("\nYou can ask the administrator")
+    print("to get another name than 'Julien'")
     return id
 
 def get_info(id):
