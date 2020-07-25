@@ -17,6 +17,12 @@ def print_userinfo(user_infos):
     for k in user_infos:
         print("{}: {}".format(str(k).capitalize(), str(user_infos[k]).capitalize()))
 
+
+
+def print_ranking():
+    
+
+
 def wait_and_clear():
     print("")
     print("="*80)
