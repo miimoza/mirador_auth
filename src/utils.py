@@ -1,3 +1,7 @@
+import os
+import sys
+
+
 class NoStdStreams(object):
     def __init__(self,stdout = None, stderr = None):
         self.devnull = open(os.devnull,'w')
