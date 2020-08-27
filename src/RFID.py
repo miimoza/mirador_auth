@@ -9,7 +9,9 @@ def init_mfrc():
 def read(reader):
     print("waiting for a card to be scanned...\n")
     reader = SimpleMFRC522()
+	print("ok")
     id, data = reader.read()
+	print("ok2")
 
     return (id, data)
 
