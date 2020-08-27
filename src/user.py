@@ -18,6 +18,7 @@ def get_info(id):
     return database.read_json(id)
 
 def increment_visit(id, dict):
+    print(now)
     now = datetime.now()
     last_visit = datetime.strptime(dict["last_visit"], "%Y-%m-%d %H:%M:%S.%f")
 
