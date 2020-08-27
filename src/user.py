@@ -29,7 +29,7 @@ def increment_visit(id, dict):
         dict["last_visit"] = str(now)
         print("test")
         print("dnow" + str(now))
-        print("last visit:" + dict["last_visit"])
+        print("last visitt:" + dict["last_visit"])
 
         dict["nb_visit"] += 1
 
