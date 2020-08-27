@@ -14,7 +14,7 @@ def read(reader):
     reader = SimpleMFRC522()
 
     print("---")
-        id, data = reader.read()
+    id, data = reader.read()
     print("---")
 
     return (id, data)
