@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import RPi.GPIO as GPIO
+import MFRC522
 import SimpleMFRC522
 
 import utils
@@ -8,14 +9,11 @@ import utils
 def init_mfrc():
     return SimpleMFRC522()
 
-
-
 def read(reader):
     print("waiting for a card to be scanned...\n")
     reader = SimpleMFRC522()
 
     print("---")
-    with utils.NoStdStreams():
         id, data = reader.read()
     print("---")
 
