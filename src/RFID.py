@@ -9,14 +9,6 @@ import utils
 def init_mfrc():
     return SimpleMFRC522()
 
-def suppress_stdout():
-    with utils.NoStdStreams():
-        old_stdout = sys.stdout
-        sys.stdout = devnull
-        try:
-            yield
-        finally:
-            sys.stdout = old_stdout
 
 
 def read(reader):
