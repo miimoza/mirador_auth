@@ -22,7 +22,7 @@ def read(reader):
     print("waiting for a card to be scanned...\n")
     reader = SimpleMFRC522()
 
-
+    print("---")
     old_stdout = sys.stdout
     sys.stdout = open(os.devnull, "w")
     try:
@@ -31,6 +31,7 @@ def read(reader):
         sys.stdout.close()
         sys.stdout = old_stdout
 
+    print("---")
 
     return (id, data)
 
