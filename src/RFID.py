@@ -14,9 +14,7 @@ def read(reader):
     print("waiting for a card to be scanned...\n")
     reader = SimpleMFRC522()
 
-    print("---")
     id, data = reader.read()
-    print("---")
 
     return (id, data)
 
