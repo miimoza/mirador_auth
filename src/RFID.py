@@ -4,12 +4,13 @@ import RPi.GPIO as GPIO
 from mfrc522 import SimpleMFRC522
 import sys
 import os
+import utils
 
 def init_mfrc():
     return SimpleMFRC522()
 
 def suppress_stdout():
-    with open(os.devnull, "w") as devnull:
+    with utils.NoStdStreams():
         old_stdout = sys.stdout
         sys.stdout = devnull
         try:
@@ -23,14 +24,8 @@ def read(reader):
     reader = SimpleMFRC522()
 
     print("---")
-    old_stdout = sys.stderr
-    sys.stderr = open(os.devnull, "w")
-    try:
+    with utils.NoStdStreams():
         id, data = reader.read()
-    finally:
-        sys.stderr.close()
-        sys.stderr = old_stdout
-
     print("---")
 
     return (id, data)
