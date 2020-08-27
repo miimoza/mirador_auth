@@ -18,13 +18,8 @@ def get_info(id):
     return database.read_json(id)
 
 def increment_visit(id, dict):
-    print(datetime.now())
     now = datetime.now()
     last_visit = datetime.strptime(dict["last_visit"], "%Y-%m-%d %H:%M:%S.%f")
-
-    print("now: " + str(now))
-    print("last visit:", str(last_visit))
-    print(now-timedelta(hours=24) <= last_visit <= now)
 
     if not now-timedelta(hours=24) <= last_visit <= now:
         print("Welcome")
