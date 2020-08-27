@@ -23,7 +23,7 @@ def read(reader):
     reader = SimpleMFRC522()
 
     print("---")
-    old_stdout = sys.stdout
+    old_stdout = sys.stderr
     sys.stdout = open(os.devnull, "w")
     try:
         id, data = reader.read()
