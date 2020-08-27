@@ -5,7 +5,7 @@ def print_banner():
     print("="*80)
     print("*********************** MIRADOR MEMBER CARD AUTHENTIFIER ***********************")
     print("="*80)
-    print("") 
+    print("")
 
 
 def print_userinfo(user_infos):
@@ -20,7 +20,8 @@ def print_userinfo(user_infos):
 
 
 def print_ranking():
-    
+	print("classement nice")
+
 
 
 def wait_and_clear():
