@@ -22,11 +22,6 @@ def read(reader):
     print("waiting for a card to be scanned...\n")
     reader = SimpleMFRC522()
 
-    import sys
-    import os
-
-    def foo():
-        print "abc"
 
     old_stdout = sys.stdout
     sys.stdout = open(os.devnull, "w")
