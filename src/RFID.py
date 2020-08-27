@@ -8,16 +8,27 @@ import os
 def init_mfrc():
     return SimpleMFRC522()
 
+def suppress_stdout():
+    with open(os.devnull, "w") as devnull:
+        old_stdout = sys.stdout
+        sys.stdout = devnull
+        try:
+            yield
+        finally:
+            sys.stdout = old_stdout
+
+
 def read(reader):
     print("waiting for a card to be scanned...\n")
     reader = SimpleMFRC522()
 
-    save_stdout = sys.stdout
-    sys.stdout = open(os.devnull, 'w')
-
-    id, data = reader.read()
-
-    sys.stdout = save_stdout
+    with open(os.devnull, "w") as devnull:
+        old_stdout = sys.stdout
+        sys.stdout = devnull
+        try:
+            id, data = reader.read()
+        finally:
+            sys.stdout = old_stdout
 
 
     return (id, data)
