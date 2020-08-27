@@ -25,7 +25,7 @@ def increment_visit(id, dict):
     print("last visit:", str(last_visit))
     print(now-timedelta(hours=24) <= last_visit <= now)
 
-    if now-timedelta(hours=24) <= last_visit <= now:
+    if not now-timedelta(hours=24) <= last_visit <= now:
         print("Welcome")
         dict["last_visit"] = str(now)
 
