@@ -12,7 +12,7 @@ def read(reader):
     reader = SimpleMFRC522()
 
     save_stdout = sys.stdout
-    sys.stdout = open('/dev/null', 'w')
+    sys.stdout = open(os.devnull, 'w')
 
     id, data = reader.read()
 
