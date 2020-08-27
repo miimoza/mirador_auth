@@ -24,12 +24,12 @@ def read(reader):
 
     print("---")
     old_stdout = sys.stderr
-    sys.stdout = open(os.devnull, "w")
+    sys.stderr = open(os.devnull, "w")
     try:
         id, data = reader.read()
     finally:
-        sys.stdout.close()
-        sys.stdout = old_stdout
+        sys.stderr.close()
+        sys.stderr = old_stdout
 
     print("---")
 
