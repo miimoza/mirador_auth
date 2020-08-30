@@ -1,6 +1,6 @@
 import display
 import os
-import database
+import user
 
 def dump():
     for i in range(3, 30):
