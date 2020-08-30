@@ -7,8 +7,20 @@ def dump():
         display.print_n(50, i, '|')
     display.print_n(51, 3, "------- RANKING BOARD -------")
 
-    line = 4
+
+
+
+
+    ranking_board = []
     for id in os.listdir('./database/profiles'):
         userinfo = user.get_info(os.path.splitext(id)[0])
-        display.print_n(51, line, userinfo["name"] + ":" + str(userinfo["nb_visit"]))
+
+        ranking_board.append({userinfo["name"], userinfo["grade"], userinfo["nb_visit"]})
+
+    line = 4
+    for userinfo in ranking_board:
+
+        display.print_n(51, line, userinfo["name"] + ": " + userinfo["grade"] + '(' + str(userinfo["nb_visit"]) + ')')
         line += 1
+
+    for k in user_infos:
