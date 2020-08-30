@@ -8,5 +8,5 @@ def dump():
     display.print_n(51, 3, "------- RANKING BOARD -------")
 
     for id in os.listdir('./database/profiles'):
-        userinfo = user.get_info(os.path.splitext(id[0])
+        userinfo = user.get_info(os.path.splitext(id)[0])
         print(userinfo["name"] + ":" + userinfo["nb_visit"])
