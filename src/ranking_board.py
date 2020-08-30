@@ -17,7 +17,7 @@ def dump():
         userinfo = user.get_info(os.path.splitext(id)[0])
         userinfo_list.append(userinfo)
 
-    ranking_board = sorted(userinfo_list, key=itemgetter('nb_visit'))
+    ranking_board = sorted(userinfo_list, key=itemgetter('nb_visit'), reverse=True)
 
     line = 4
     for userinfo in ranking_board:
