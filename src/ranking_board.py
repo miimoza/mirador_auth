@@ -9,4 +9,4 @@ def dump():
 
     for id in os.listdir('./database/profiles'):
         userinfo = user.get_info(os.path.splitext(id)[0])
-        print(userinfo["name"] + ":" + userinfo["nb_visit"])
+        print(userinfo["name"] + ":" + str(userinfo["nb_visit"]))
