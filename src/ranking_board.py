@@ -10,5 +10,6 @@ def dump():
 
 
 
-    for filename in os.listdir('./database/profiles'):
-        print(filename)
+    for id in os.listdir('./database/profiles'):
+        userinfo = user.get_info(id)
+        print(userinfo["name"] + ":" + userinfo["nb_visit"])
