@@ -10,5 +10,5 @@ def dump():
 
 
 
-    for filename in os.listdir('./database/'):
+    for filename in os.listdir('./database/profiles'):
         print(filename)

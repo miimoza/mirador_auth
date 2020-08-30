@@ -1,7 +1,7 @@
 import json
 
 def get_path(id):
-    return "./database/{}.json".format(id)
+    return "./database/profiles/{}.json".format(id)
 
 def write_json(id, dict):
     path=get_path(id)
