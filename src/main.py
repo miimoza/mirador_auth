@@ -35,7 +35,7 @@ def main():
 
 
         #================== WAIT FOR SOMEONE TO SCAN HIS CARD ==================
-        display.print_n(1, 4, "SCAN YOU CARD...\n")
+        display.print_n(0, 4, "SCAN YOU CARD...\n")
         id, data = RFID.read(reader)
 
         # Switch on the green light to notify the scan
