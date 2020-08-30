@@ -11,16 +11,14 @@ def dump():
 
 
 
-    ranking_board = []
+    userinfo_list = []
     for id in os.listdir('./database/profiles'):
         userinfo = user.get_info(os.path.splitext(id)[0])
 
-        ranking_board.append({userinfo["name"], userinfo["grade"], userinfo["nb_visit"]})
+        userinfo_list.append({userinfo["name"], userinfo["grade"], userinfo["nb_visit"]})
 
-    line = 4
+    ranking_board = sorted(list_to_be_sorted, key=itemgetter('nb_visit'))
+
     for userinfo in ranking_board:
-
         display.print_n(51, line, userinfo["name"] + ": " + userinfo["grade"] + '(' + str(userinfo["nb_visit"]) + ')')
         line += 1
-
-    for k in user_infos:
