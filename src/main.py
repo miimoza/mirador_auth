@@ -31,8 +31,12 @@ def main():
 
     while True:
         display.print_banner()
+
+
+        #================== WAIT FOR SOMEONE TO SCAN HIS CARD ==================
         id, data = RFID.read(reader)
 
+        # Switch on the green light to notify the scan
         GPIO.output(greenlight_pin, GPIO.HIGH)
 
         if button.button_pressed:
@@ -46,15 +50,15 @@ def main():
                 display.print_userinfo(userinfo)
             else:
                 GPIO.output(redlight_pin, GPIO.HIGH)
-                print(e)
+
                 print("[ERROR] ID not identified")
                 print("\nClick on the button then scan the ")
                 print("card to create a new MMC.\n")
                 print("(MMC: Mirador Member Card)")
 
-
         display.wait_and_clear()
 
+        # Switch Off the lights
         GPIO.output(redlight_pin, GPIO.LOW)
         GPIO.output(greenlight_pin, GPIO.LOW)
 
