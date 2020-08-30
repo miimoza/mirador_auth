@@ -17,7 +17,7 @@ def create(id):
     return id
 
 def id_exist(id):
-    return os.path.isfile('./database/' + id + '.json')
+    return os.path.isfile('./database/' + str(id) + '.json')
 
 def get_info(id):
     return database.read_json(id)
