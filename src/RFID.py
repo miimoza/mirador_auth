@@ -14,5 +14,3 @@ def read(reader):
 
 def write(reader, data):
     reader.write(data)
-
-def get_id(data):
