@@ -10,4 +10,5 @@ def dump():
     line = 3
     for id in os.listdir('./database/profiles'):
         userinfo = user.get_info(os.path.splitext(id)[0])
-        print_n(51, line++, userinfo["name"] + ":" + str(userinfo["nb_visit"]))
+        print_n(51, line, userinfo["name"] + ":" + str(userinfo["nb_visit"]))
+        line += 1
