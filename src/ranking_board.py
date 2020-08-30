@@ -17,7 +17,7 @@ def dump():
 
         userinfo_list.append({userinfo["name"], userinfo["grade"], userinfo["nb_visit"]})
 
-    ranking_board = sorted(list_to_be_sorted, key=itemgetter('nb_visit'))
+    ranking_board = sorted(userinfo_list, key=itemgetter('nb_visit'))
 
     for userinfo in ranking_board:
         display.print_n(51, line, userinfo["name"] + ": " + userinfo["grade"] + '(' + str(userinfo["nb_visit"]) + ')')
