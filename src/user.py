@@ -1,5 +1,7 @@
 from datetime import datetime, timedelta
 import database
+import os.path
+
 
 def create(id):
     print("Create new User with ID: {}".format(str(id)))
@@ -14,8 +16,12 @@ def create(id):
     print("to get another name than 'Julien'")
     return id
 
+def id_exist(id):
+    return os.path.isfile('./database/' + id + '.json'):
+
 def get_info(id):
     return database.read_json(id)
+
 
 def increment_visit(id, dict):
     now = datetime.now()
@@ -24,7 +30,6 @@ def increment_visit(id, dict):
     if not now-timedelta(hours=24) <= last_visit <= now:
         print("Welcome")
         dict["last_visit"] = str(now)
-
 
         dict["nb_visit"] += 1
 
@@ -44,4 +49,5 @@ def increment_visit(id, dict):
             elif (dict["nb_visit"] >= 2):
                 dict["grade"] = "cuivre"
                 pass
+
         database.write_json(id, dict)

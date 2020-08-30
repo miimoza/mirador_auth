@@ -3,7 +3,6 @@ import RPi.GPIO as GPIO
 import RFID
 import display
 import user
-import keyboard
 import main
 import time
 

@@ -31,3 +31,12 @@ def wait_and_clear():
         print(".",end='', flush=True)
         time.sleep(0.1)
     os.system('clear')
+
+def move_cursor(y, x):
+	os.system("tput cup " + str(y) + " " + str(x))
+
+def print_n(w, n, s):
+	move_cursor(n, w)
+	print(s)
+
+	return n+1
