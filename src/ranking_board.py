@@ -1,6 +1,6 @@
 import display
 
 def dump():
-    for i in range(0, 20):
+    for i in range(3, 20):
         display.print_n(40, i, '|')
-    display.print_n(50, 4, "RANKING BOARD")
+    display.print_n(50, 4, "----------- RANKING BOARD -------------")
