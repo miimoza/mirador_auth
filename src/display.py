@@ -25,7 +25,7 @@ def print_ranking():
 
 
 def wait_and_clear():
-    display.move_cursor(20, 0)
+    move_cursor(20, 0)
     print("="*80)
     for i in range(0,80):
         print(".",end='', flush=True)
