@@ -8,7 +8,7 @@ import display
 import os
 import time
 import button
-
+import ranking_board
 
 def main():
     os.system('clear')
@@ -31,12 +31,11 @@ def main():
 
     while True:
         display.print_banner()
+        ranking_board.dump()
 
 
         #================== WAIT FOR SOMEONE TO SCAN HIS CARD ==================
         id, data = RFID.read(reader)
-
-        print("NICE")
 
         # Switch on the green light to notify the scan
         GPIO.output(greenlight_pin, GPIO.HIGH)
