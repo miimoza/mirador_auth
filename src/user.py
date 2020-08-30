@@ -27,7 +27,7 @@ def increment_visit(id, dict):
     now = datetime.now()
     last_visit = datetime.strptime(dict["last_visit"], "%Y-%m-%d %H:%M:%S.%f")
 
-    if not now-timedelta(hours=24) <= last_visit <= now:
+    if not now-timedelta(seconds=30) <= last_visit <= now:
         print("Welcome")
         dict["last_visit"] = str(now)
 
