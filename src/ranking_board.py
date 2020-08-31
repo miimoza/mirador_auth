@@ -21,5 +21,5 @@ def dump():
 
     line = 4
     for userinfo in ranking_board:
-        display.print_n(51, line, userinfo["name"] + ": " + userinfo["grade"] + '(' + str(userinfo["nb_visit"]) + ')')
+        display.print_n(51, line, userinfo["name"].ljust(10) + userinfo["grade"].ljust(10) + userinfo["nb_visit"].rjust(3))
         line += 1
