@@ -2,17 +2,25 @@
 from src import database
 
 def main():
+    last_creations=[]
     with open("./database/logs/profiles_creation.log", "r") as log:
-        if sum(1 for _ in log) < 5:
-            last_creations = log.readlines()
-        else:
-            last_creations = log.readlines()[-5]
+        for line in (log.readlines() [-5:]):
+            last_creations.append(line)
 
-    for l in last_creations.splitlines():
-        print('[0] : ' +  l)
+    for i in range(0, len(last_creations)):
+        print("[" + str(i) + "] " + last_creations[i], end='')
 
-    while len(name) > 12:
-        name=input("name: ").lower()
+    i = input("number: ")
+    id = last_creations[int(i)].split(',')[0]
+    print("id:" + id)
+
+    name = input("name: ").lower()
+    if len(name) > 12:
+        print("Less than 12 characters !!!")
+        while len(name) > 12:
+            name = input("name: ").lower()
+
+
 
     dict = database.read_json(id)
     dict["name"] = name
