@@ -3,7 +3,10 @@ from src import database
 
 def main():
     with open("./database/logs/profiles_creation.log", "r") as log:
-        last_creations = log.readlines()[-5]
+        if sum(1 for _ in log) < 5:
+            last_creations = log.readlines()
+        else
+            last_creations = log.readlines()[-5]
 
     for l in last_creations.splitlines():
         print('[0] : ' +  l)
