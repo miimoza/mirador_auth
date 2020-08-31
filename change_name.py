@@ -5,7 +5,7 @@ def main():
     with open("./database/logs/profiles_creation.log", "r") as log:
         if sum(1 for _ in log) < 5:
             last_creations = log.readlines()
-        else
+        else:
             last_creations = log.readlines()[-5]
 
     for l in last_creations.splitlines():
