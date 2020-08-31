@@ -21,10 +21,6 @@ def print_userinfo(user_infos):
 
 
 
-def print_ranking():
-	print("classement nice")
-
-
 
 def wait_and_clear():
     move_cursor(31, 0)
