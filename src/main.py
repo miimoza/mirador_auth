@@ -45,9 +45,13 @@ def main():
         GPIO.output(greenlight_pin, GPIO.HIGH)
 
         if button.button_pressed:
-            print("Creating the new profile...")
-            user.create(id)
-            button.button_pressed = False
+            if user.id_exist(id):
+                print("Creating the new profile...")
+                user.create(id)
+                utils.log("profiles_creation.log", str(id) + ","+ str(datetime.now()))
+                button.button_pressed = False
+            else:
+                print("ID is already created.")
         else:
             if user.id_exist(id):
                 userinfo = user.get_info(id)
