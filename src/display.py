@@ -6,6 +6,8 @@ def print_banner():
     print("*********************** MIRADOR MEMBER CARD AUTHENTIFIER ***********************")
     print("="*80)
     print("")
+    move_cursor(30, 0)
+    print("="*80)
 
 
 def print_userinfo(user_infos):
@@ -25,8 +27,7 @@ def print_ranking():
 
 
 def wait_and_clear():
-    move_cursor(30, 0)
-    print("="*80)
+    move_cursor(31, 0)
     for i in range(0,80):
         print(".",end='', flush=True)
         time.sleep(0.1)
