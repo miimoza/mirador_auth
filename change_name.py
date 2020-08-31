@@ -12,7 +12,6 @@ def main():
 
     i = input("number: ")
     id = last_creations[int(i)].split(',')[0]
-    print("id:" + id)
 
     name = input("name: ").lower()
     if len(name) > 12:
