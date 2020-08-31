@@ -2,8 +2,11 @@
 from src import database
 
 def main():
-    id=input("id: ")
+    with open("./database/logs/profiles_creation.log", "r") as log:
+        last_creations = log.readlines()[-5]
 
+    for l in last_creations.splitlines():
+        print('[0] : ' +  l)
 
     while len(name) > 12:
         name=input("name: ").lower()
