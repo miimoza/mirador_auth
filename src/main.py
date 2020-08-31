@@ -10,6 +10,7 @@ import os
 import time
 import button
 import ranking_board
+import utils
 
 def main():
     os.system('clear')
