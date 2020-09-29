@@ -7,7 +7,7 @@ def dump():
     for i in range(3, 30):
         display.print_n(50, i, '|')
 
-    display.print_n(0, 29, ">=2:cuivre|>=5:Bronze|>=10:Argent|>=25:Or|>=50:Platine")
+    display.print_n(0, 29, "2:cuivre|5:Bronze|10:Argent|25:Or|50:Platine")
     display.print_n(51, 3, "------- RAANKING BOARD -------")
 
 
