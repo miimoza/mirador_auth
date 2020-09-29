@@ -8,7 +8,7 @@ def dump():
         display.print_n(50, i, '|')
 
     display.print_n(1, 30, ">=2:Cuivre|>=5:bronze|>=10:argent|>=25:or|>=50:platine")
-    display.print_n(51, 3, "------- RANKING BOARD -------")
+    display.print_n(51, 3, "------- RAANKING BOARD -------")
 
 
 
