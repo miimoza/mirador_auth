@@ -1,2 +1,83 @@
 sudo su
 mount -o remount, rw /
+
+
+Bonjour Antoine,
+
+Content que vous vous piquiez d'intérêt pour la version "vrai matériel" du sujet. 🙂
+
+J'avais demandé aux élèves de se procurer ce modèle, à l'époque, qui me semble
+sensiblement identique au vôtre:
+https://www.amazon.fr/gp/product/B0716T7R1Y/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1
+Je suppose que vous l'avez branché et puis testé avec la lib Python comme décrit
+dans ce tuto, que j'avais utilisé comme référence:
+https://raspberry-lab.fr/Composants/Module-RFID-RC522-Raspberry-Francais/
+
+Donc là, ce qui se passe, c'est que vous utilisez implicitement un module kernel
+appelé spidev (drivers/spi/spidev.c dans les sources de Linux), qui expose par un
+noeud dans le devfs, votre MFRC522. Le driver se contente, via read(), write() et
+consorts, de faire un passe-plat avec le device: en fait il ne contient aucune logique
+propre, c'est vraiment un tuyau vers le userspace. Vous allez le court-circuiter et prendre
+en charge le device vous-mêmes.
+
+Au niveau du device tree, il faudra indiquer que le device SPI associé, sous le noeud du
+contrôleur SPI BCM2835 de la Raspberry Pi, est désormais "compatible" avec votre
+driver. On peut faire ça avec des "overlays" avec Raspbian; voici un exemple de ce que
+Matthieu Moatti et Mathis Raguin m'avaient fait l'année dernière (ils ont pas changé le
+nom des noeuds donc ils s'appellent encore "spidev", mais leur driver s'appelle bien "mmm"):
+
+/dts-v1/;
+/plugin/;
+
+/ {
+   compatible = "brcm,bcm2835";
+
+   fragment@0 {
+     target = <&spi>;
+
+     __overlay__ {
+       #address-cells = <1>;
+       #size-cells = <0>;
+       status = "okay";
+       spidev@0 {
+         spi-max-frequency = <500000>;
+         reg = <0>;
+         compatible = "mmm";
+       };
+       spidev@1 {
+         spi-max-frequency = <500000>;
+         reg = <1>;
+         compatible = "mmm";
+       };
+     };
+   };
+};
+
+La doc' officielle Raspbian est plutôt claire sur la façon de mettre en oeuvre cette
+technique, qui permet de changer un device tree à la volée. Ca vous évite de tout
+recompiler et ré-écrire la carte SD:
+https://www.raspberrypi.org/documentation/configuration/device-tree.md
+
+Maintenant, côté driver. Pour réutiliser la base développée pendant le projet, il va
+falloir arrêter de "taper" dans l'émulateur. Débarrassez-vous des headers que je vous
+avais fait utiliser, et trouvez le device via le device tree comme vous savez maintenant
+le faire. Ensuite, ça devient plus intéressant: l'API regmap que je vous fait utiliser
+directement dans le sujet, a en fait été "préparée" par moi. Normalement, elle demande
+de spécifier quel type de bus on va utiliser (SPI ou I2C), quels registres sont accessibles
+en lecture et/ou écriture, etc. Si vous lisez le code de mon mini-émulateur, vous verrez
+que c'est ce que je fais, sauf que je "triche" en ne reliant jamais à un vrai device.
+Vous allez devoir faire vous-mêmes ce travail d'adaptation.
+
+L'année dernière, je ne connaissais pas regmap et faisais écrire un driver via l'API
+SPI "vanilla" du kernel; qui marche, mais regmap en simplifie l'usage. A vous de voir
+ce que vous préférez: tout jeter et utiliser l'API SPI, ou garder un maximum de code
+mais initialiser le driver de façon à préparer vous-mêmes la regmap.
+
+Pour info, je n'ai pas encore essayé de le faire moi-même. Évidemment, trouver le
+bon équilibre entre une version "soft" et une "hard" me permettrait de proposer à vos
+successeurs un sujet flexible, et plus mature; mais d'ici-là, vous serez devant moi.
+
+A+,
+
+--
+Geoffrey

@@ -6,6 +6,23 @@ from operator import itemgetter
 def dump():
     for i in range(3, 30):
         display.print_n(50, i, '|')
+
+if (dict["nb_visit"] >= 50):
+    dict["grade"] = "platine"
+    pass
+elif (dict["nb_visit"] >= 25):
+    dict["grade"] = "or"
+    pass
+elif (dict["nb_visit"] >= 10):
+    dict["grade"] = "argent"
+    pass
+elif (dict["nb_visit"] >= 5):
+    dict["grade"] = "bronze"
+    pass
+elif (dict["nb_visit"] >= 2):
+    dict["grade"] = "cuivre"
+
+    display.print_n(1, 30, ">=2:Cuivre|>=5:bronze|>=10:argent|>=25:or|>=50:platine")
     display.print_n(51, 3, "------- RANKING BOARD -------")
 
 
