@@ -9,7 +9,7 @@ def dump():
 
 
 
-    display.print_n(0, 29, "2:cuivre|5:Bronze|10:Argent|25:Or|50:Platine")
+    display.print_n(0, 29, "   2:cuivre|5:Bronze|10:Argent|25:Or|50:Platine")
     display.print_n(51, 3, "------- RAANKING BOARD -------")
 
 
