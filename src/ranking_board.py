@@ -28,7 +28,7 @@ def dump():
         switcher = {
             "cuivre": "\033[33m",
             "bronze": "\033[91m",
-            "argent": "\033[37m",
+            "argent": "\033[97m",
             "or": "\033[93m",
             "platine": "\033[96m"
         }
