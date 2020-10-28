@@ -27,10 +27,10 @@ def dump():
     for userinfo in ranking_board:
 
     switcher = {
-        "cuivre": "\033[33m"
-        "bronze": "\033[91m"
-        "argent": "\033[37m"
-        "or": "\033[93m"
+        "cuivre": "\033[33m",
+        "bronze": "\033[91m",
+        "argent": "\033[37m",
+        "or": "\033[93m",
         "platine": "\033[96m"
     }
 
