@@ -27,7 +27,7 @@ def dump():
     for userinfo in ranking_board:
         if userinfo["grade"] == "or":
             color = "\033[93m"
-        else
+        else:
             color = "\033[39m"
 
         color_default = "\033[39m"
