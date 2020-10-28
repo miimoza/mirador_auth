@@ -33,7 +33,7 @@ def dump():
             "platine": "\033[96m"
         }
 
-        color = switcher.get(userinfo["grade"], lambda: "\033[0m")()
+        color = switcher.get(userinfo["grade"], "\033[0m")
 
         display.print_n(51, line, color + userinfo["name"].ljust(13) + userinfo["grade"].ljust(13) + str(userinfo["nb_visit"]).rjust(3) + "\033[0m")
         line += 1
