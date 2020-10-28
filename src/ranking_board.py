@@ -27,6 +27,9 @@ def dump():
     for userinfo in ranking_board:
         if userinfo["grade"] == "or":
             color = "\e[93m"
+        else
+            color = "\e[39m"
+
         color_default = "\e[39m"
         display.print_n(51, line, color + userinfo["name"].ljust(13) + userinfo["grade"].ljust(13) + str(userinfo["nb_visit"]).rjust(3) + color_default)
         line += 1
