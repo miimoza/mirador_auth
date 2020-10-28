@@ -9,7 +9,7 @@ def dump():
 
 
 
-    display.print_n(0, 29, "   2:Cuivre 5:Bronze 10:Argent 25:Or 50:Platine")
+    display.print_n(0, 29, "   \033[33m2:Cuivre \033[91m5:Bronze \033[97m10:Argent \033[93m25:Or \033[96m50:Platine\033[0m")
     display.print_n(51, 3, "------- RANKING BOARD -------")
 
 
