@@ -9,7 +9,7 @@ def dump():
 
 
 
-    display.print_n(0, 29, "   \033[31m2:Cuivre \033[33m5:Bronze \033[97m10:Argent \033[93m25:Or \033[96m50:Platine\033[0m")
+    display.print_n(0, 29, "   \033[91m2:Cuivre \033[33m5:Bronze \033[97m10:Argent \033[93m25:Or \033[96m50:Platine\033[0m")
     display.print_n(51, 3, "------- RANKING BOARD -------")
 
 
@@ -26,7 +26,7 @@ def dump():
     line = 4
     for userinfo in ranking_board:
         switcher = {
-            "cuivre": "\033[31m",
+            "cuivre": "\033[91m",
             "bronze": "\033[33m",
             "argent": "\033[97m",
             "or": "\033[93m",
