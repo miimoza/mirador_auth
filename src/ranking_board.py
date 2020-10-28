@@ -25,11 +25,16 @@ def dump():
 
     line = 4
     for userinfo in ranking_board:
-        if userinfo["grade"] == "or":
-            color = "\033[93m"
-        else:
-            color = "\033[39m"
 
-        color_default = "\033[39m"
-        display.print_n(51, line, color + userinfo["name"].ljust(13) + userinfo["grade"].ljust(13) + str(userinfo["nb_visit"]).rjust(3) + color_default)
-        line += 1
+    switcher = {
+        "cuivre" : "\033[33m"
+        "bronze" : "\033[91m"
+        "argent" : "\033[37m"
+        "or": "\033[93m"
+        "platine": "\033[96m"
+    }
+
+    color = switcher.get(userinfo["grade"], lambda:"\033[0m")
+
+    display.print_n(51, line, color + userinfo["name"].ljust(13) + userinfo["grade"].ljust(13) + str(userinfo["nb_visit"]).rjust(3) + color_default)
+    line += 1
