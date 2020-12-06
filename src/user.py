@@ -5,15 +5,23 @@ import os.path
 
 def create(id):
     print("Create new User with ID: {}".format(str(id)))
+
+    name = input("name: ").lower()
+    if len(name) > 12:
+        print("Less than 12 characters !!!")
+        while len(name) > 12:
+            name = input("name: ").lower()
+
+    print("card {} was assigned to {}, welcome".format(id, name))
+
     dict = {
-        "name": "Julien",
+        "name": name,
         "nb_visit": 0,
         "last_visit": "0001-01-01 00:00:00.00",
         "grade": "visiteur"
     }
     database.write_json(id, dict)
-    print("\nYou can ask the administrator")
-    print("to get another name than 'Julien'")
+    print("\nCorrectly saved in the database")
     return id
 
 def id_exist(id):
