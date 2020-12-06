@@ -52,6 +52,7 @@ def main():
                 button.button_pressed = False
             else:
                 print("ID is already created.")
+                button.button_pressed = False
         else:
             if user.id_exist(id):
                 userinfo = user.get_info(id)
