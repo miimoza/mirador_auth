@@ -3,7 +3,7 @@ import time
 
 def print_banner():
     print("="*80)
-    print("*********************** MIRADOR MEMBER CARD AUTHENTIFIER ***********************")
+    print("*********************** MOULIN  MEMBER CARD AUTHENTIFIER ***********************")
     print("="*80)
     print("")
     move_cursor(30, 0)
